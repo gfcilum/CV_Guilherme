@@ -1,4 +1,5 @@
 const fs = require('fs');
+const yml = require('js-yaml');
 const pdf = require('html-pdf');
 const handlebars = require('handlebars');
 
@@ -17,7 +18,9 @@ handlebars.registerHelper('stars', (numberOfStars) => {
   return output.join('');
 });
 
-const data = require('./data');
+const data = yml.safeLoad(fs.readFileSync('./data.yml', 'utf8'));
+
+// const data = require('./data');
 const styles = fs.readFileSync('./index.css', 'utf8');
 const htmlString = fs.readFileSync('./index.html', 'utf8');
 const html = handlebars.compile(htmlString)({ styles, ...data });

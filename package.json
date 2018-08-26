@@ -5,7 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "handlebars": "^4.0.11",
-    "html-pdf": "^2.2.0"
+    "html-pdf": "^2.2.0",
+    "js-yaml": "^3.12.0"
   },
   "scripts": {
     "pdf": "node index.js; open index.pdf"
