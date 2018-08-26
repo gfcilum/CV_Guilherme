@@ -3,26 +3,20 @@ const yml = require('js-yaml');
 const pdf = require('html-pdf');
 const handlebars = require('handlebars');
 
-handlebars.registerHelper('stars', (numberOfStars) => {
-  const output = [];
-
-  for (let i = 0; i < 5; i++) {
-    if (i < numberOfStars) {
-      output.push('<i class="fa fa-star fa-lg"></i>');
-    }
-    else {
-      output.push('<i class="fa fa-star-o fa-lg"></i>');
-    }
-  }
-
-  return output.join('');
-});
-
-const data = yml.safeLoad(fs.readFileSync('./data.yml', 'utf8'));
-
-// const data = require('./data');
 const styles = fs.readFileSync('./index.css', 'utf8');
 const htmlString = fs.readFileSync('./index.html', 'utf8');
+const data = yml.safeLoad(fs.readFileSync('./data.yml', 'utf8'));
+
+handlebars.registerHelper('stars', (numberOfStars) => {
+  return [0, 1, 2, 3, 4].map(i => {
+    if (i < numberOfStars) {
+      return '<i class="fa fa-star fa-lg"></i>';
+    }
+
+    return '<i class="fa fa-star-o fa-lg"></i>'
+  }).join('');
+});
+
 const html = handlebars.compile(htmlString)({ styles, ...data });
 
 pdf.create(html).toFile('./index.pdf', (err, res) => {
