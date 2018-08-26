@@ -1,0 +1,13 @@
+{
+  "name": "CV_Guilherme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "html-pdf": "^2.2.0"
+  },
+  "scripts": {
+    "pdf": "node index.js; open index.pdf"
+  }
+}

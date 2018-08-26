@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  color: #345;
+  font-size: 8px;
+  font-weight: 300;
+  line-height: 14px;
+  font-family: arial;
+  padding: 20px 20px 10px 20px;
+  border-bottom: 2px solid #345;
+}
+
+section {
+  padding: 10px 0;
+}
+
+em {
+  color: #999;
+}
+
+/* Layout */
+.flex {
+  display: flex;
+  flex-direction: row;
+
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+}
+
+.flex-gutter {
+  flex: 0 0 20px;
+  -webkit-flex: 0 0 20px;
+}
+
+.flex-responsive {
+  flex: 1;
+  -webkit-flex: 1;
+}
+
+.flex-fixed-60 {
+  flex: 0 0 60px;
+  -webkit-flex: 0 0 60px;
+}
+
+.flex-fixed-130 {
+  flex: 0 0 130px;
+  -webkit-flex: 0 0 130px;
+}
+
+.flex-fixed-145 {
+  flex: 0 0 145px;
+  -webkit-flex: 0 0 145px;
+}
+
+/* Helpers */
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.no-padding-top {
+  padding-top: 0;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+/* Decorators */
+.name {
+  font-size: 24px;
+  padding-top: 10px;
+}
+
+.description {
+  color: #999;
+  font-size: 14px;
+  padding: 5px 0 0 138px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.statement {
+  padding: 8px 100px;
+  text-align: center;
+  margin: 10px 0 2px 0;
+  border-top: 1px solid #EEE;
+  border-bottom: 1px solid #EEE;
+}

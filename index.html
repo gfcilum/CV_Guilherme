@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CV</title>
+  <style>{{styles}}</style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+  <header>
+    <div class="flex">
+      <div class="flex-responsive">
+        <div class="name">{{name}}</div>
+        <div class="description">{{job_title}}</div>
+      </div>
+      <div class="flex-fixed-145 text-right">
+        <div>{{email}}</div>
+        <div>{{mobile}}</div>
+        <div>{{nationality}}</div>
+        <div>{{address}}</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="statement">{{personal_statement}}</section>
+
+  <div class="flex">
+    <section class="flex-responsive no-padding-bottom">
+      <div class="title">Employment</div>
+
+      {{#each employment}}
+      <section>
+        <div class="flex">
+          <div class="flex-fixed-130">
+            <div><b>{{date}}</b></div>
+            <div><em>{{position}}</em></div>
+            <div>{{employer}}</div>
+          </div>
+          <div class="flex-responsive text-justify">{{description}}</div>
+        </div>
+      </section>
+      {{/each}}
+
+      <section>
+        <div class="title">Education</div>
+
+        {{#each education}}
+        <section class="flex">
+          <div class="flex-fixed-130">
+            <div><b>{{date}}</b></div>
+            <div><em>{{subject}}</em></div>
+          </div>
+          <div class="flex-responsive">
+            <div>{{institution}}</div>
+            <div>{{grade}}</div>
+          </div>
+        </section>
+        {{/each}}
+      </section>
+    </section>
+
+    <div class="flex-gutter"></div>
+
+    <section class="flex-fixed-145 no-padding-top">
+      {{#each skill_types}}
+      <section>
+        <div class="title">{{title}}</div>
+
+        <section>
+          {{#each skills}}
+          <div class="flex">
+            <div class="flex-responsive">{{title}}</div>
+            <div class="flex-fixed-60 text-right">
+              {{#stars stars}}{{/stars}}
+            </div>
+          </div>
+          {{/each}}
+        </section>
+      </section>
+      {{/each}}
+
+      <section>
+        <div class="title">Volunteering</div>
+
+        {{#each volunteering}}
+        <section>
+          <div><b>{{date}}</b></div>
+          <div><em>{{position}}</em></div>
+          <div>{{entity}}</div>
+          <div>{{info}}</div>
+        </section>
+        {{/each}}
+      </section>
+
+      <section class="no-padding-bottom">
+        <div class="title">Other</div>
+        <section>{{#each others}}<div>{{title}}</div>{{/each}}</section>
+      </section>
+    </section>
+  </div>
+</body>
+</html>
