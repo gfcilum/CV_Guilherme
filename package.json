@@ -2,13 +2,23 @@
   "name": "CV_Guilherme",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "git@github.com:jbonigomes/CV.git",
+  "author": "Jose B Gomes <jbonigomes@yahoo.com.br>",
   "license": "MIT",
   "dependencies": {
+    "dictionary-en-gb": "^2.0.0",
     "handlebars": "^4.0.11",
     "html-pdf": "^2.2.0",
-    "js-yaml": "^3.12.0"
+    "js-yaml": "^3.12.0",
+    "node-sass": "^4.9.3",
+    "nodehun": "^2.0.12",
+    "nodehun-sentences": "^2.0.1",
+    "write-good": "^0.13.1"
   },
   "scripts": {
-    "pdf": "node index.js; open index.pdf"
+    "write-good": "node write-good.js",
+    "spell-check": "node spell-checker.js",
+    "pdf": "node index.js; open index.pdf",
+    "resign": "html-pdf resignation.html resignation.pdf; open resignation.pdf"
   }
 }

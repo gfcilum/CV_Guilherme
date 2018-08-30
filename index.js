@@ -1,11 +1,12 @@
 const fs = require('fs');
 const yml = require('js-yaml');
 const pdf = require('html-pdf');
+const sass = require('node-sass');
 const handlebars = require('handlebars');
 
-const styles = fs.readFileSync('./index.css', 'utf8');
 const htmlString = fs.readFileSync('./index.html', 'utf8');
-const data = yml.safeLoad(fs.readFileSync('./data.yml', 'utf8'));
+const data = yml.safeLoad(fs.readFileSync('./index.yml', 'utf8'));
+const styles = sass.renderSync({ file: 'index.scss' }).css.toString();
 
 handlebars.registerHelper('stars', (numberOfStars) => {
   return [0, 1, 2, 3, 4].map(i => {

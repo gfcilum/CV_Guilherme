@@ -1,12 +1,19 @@
+/* Colours */
+$dark: #345;
+$light: #EEE;
+$medium: #999;
+$emphasis: #D50;
+
+/* Base */
 body {
   margin: 0;
-  color: #345;
+  color: $dark;
   font-size: 8px;
   font-weight: 300;
   line-height: 14px;
   font-family: arial;
   padding: 20px 20px 10px 20px;
-  border-bottom: 2px solid #345;
+  border-bottom: 2px solid $dark;
 }
 
 section {
@@ -14,7 +21,7 @@ section {
 }
 
 em {
-  color: #999;
+  color: $medium;
 }
 
 /* Layout */
@@ -36,19 +43,11 @@ em {
   -webkit-flex: 1;
 }
 
-.flex-fixed-60 {
-  flex: 0 0 60px;
-  -webkit-flex: 0 0 60px;
-}
-
-.flex-fixed-130 {
-  flex: 0 0 130px;
-  -webkit-flex: 0 0 130px;
-}
-
-.flex-fixed-145 {
-  flex: 0 0 145px;
-  -webkit-flex: 0 0 145px;
+@for $i from 15 to 150 {
+  .flex-fixed-#{$i} {
+    flex: 0 0 #{$i}px;
+    -webkit-flex: 0 0 #{$i}px;
+  }
 }
 
 /* Helpers */
@@ -75,7 +74,7 @@ em {
 }
 
 .description {
-  color: #999;
+  color: $medium;
   font-size: 14px;
   padding: 5px 0 0 138px;
 }
@@ -88,6 +87,6 @@ em {
   padding: 8px 100px;
   text-align: center;
   margin: 10px 0 2px 0;
-  border-top: 1px solid #EEE;
-  border-bottom: 1px solid #EEE;
+  border-top: 1px solid $light;
+  border-bottom: 1px solid $light;
 }

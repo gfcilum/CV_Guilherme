@@ -1,8 +1,8 @@
 name: Guilherme Cilumbriello
-job_title: Project Manager
+profession: Project Manager
 email: guilhermefcilum@hotmail.com
 mobile: 07413 063 763
-nationality: Italian/Brazilian
+nationality: Italian / Brazilian
 address: London, SW18
 personal_statement: I am a young professional living, working and studying in
   London since January 2017. Looking for a career move towards project
@@ -17,7 +17,7 @@ employment:
       Supporting the company well-established procedures, such as FIFO and
       introducing new managerial techniques such as forecasting sales. Leading
       by example and multi-tasking to keep the store running smoothly I had the
-      opportunity to take part in tasks involving stock checks/supply chain as
+      opportunity to take part in tasks involving stock checks / supply chain as
       well as training new starters.
   - date: Jul 16 - Jul 17
     position: Kitchen Manager
@@ -42,10 +42,10 @@ employment:
     position: Electrical Engineering Intern
     employer: Multielos Banhos Quimicos
     description: While taking my last semester at university, I got involved in
-      an engineering project as an intern, not just to fulfill my spare time but
+      an engineering project as an intern, not just to fulfil my spare time but
       also to gain professional experience. Some admin tasks were involved such
       as implementing and tracking PPE of employees as well as more technical
-      tasks such as analyzing energy efficiency.
+      tasks such as analysing energy efficiency.
 education:
   - date: Jun 18 - Date
     subject: Project Management
@@ -60,7 +60,7 @@ education:
     institution: Green Belt - Six Sigma
     grade: Certificate of completion
   - date: Aug 10 - Aug 15
-    subject: B.Eng in Electrical Engineering
+    subject: B.Eng. in Electrical Engineering
     institution: Universidade Federal São João Del Rei
     grade: 2:1 equivalent
 skill_types:
@@ -74,7 +74,7 @@ skill_types:
         stars: 4
       - title: Work under pressure
         stars: 4
-      - title: Multi tasker
+      - title: Multi tasking
         stars: 3
       - title: Attention to detail
         stars: 3
@@ -94,7 +94,7 @@ skill_types:
         stars: 4
       - title: Methodologies
         stars: 3
-      - title: Business case writting
+      - title: Business case writing
         stars: 3
       - title: Delivery
         stars: 2
