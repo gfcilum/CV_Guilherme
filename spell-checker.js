@@ -5,6 +5,7 @@ const yml = require('js-yaml');
 const Nodehun = require('nodehun');
 const spellcheck = require('nodehun-sentences');
 
+const words = require('./words');
 const data = yml.safeLoad(fs.readFileSync('./index.yml', 'utf8'));
 
 const dictionaryPath = path.join(
@@ -18,7 +19,7 @@ const hunspell = new Nodehun(
   fs.readFileSync(path.join(dictionaryPath, 'index.dic'))
 );
 
-const spellChecker = (text) => {
+const spellchecker = (text) => {
   return new Promise((resolve, reject) => {
     spellcheck(hunspell, text, (err, typos) => {
       if (err) {
@@ -50,73 +51,36 @@ const addWords = (words) => {
   return Promise.all(promises);
 };
 
-const spellCheckJobs = async (jobs) => {
-  const res = [];
+const loopObject = async (data) => {
+  const res = {};
+  const keys = Object.keys(data);
 
-  for (let i = 0; i < jobs.length; i++) {
-    res.push({
-      position: await spellChecker(jobs[i].position),
-      description: await spellChecker(jobs[i].description),
-    });
+  for (let i = 0; i < keys.length; i++) {
+    res[keys[i]] = await suggestions(data[keys[i]]);
   }
 
   return res;
 };
 
-const spellCheckEdu = async (edu) => {
+const loopArray = async (data) => {
   const res = [];
 
-  for (let i = 0; i < edu.length; i++) {
-    res.push({
-      grade: await spellChecker(edu[i].grade),
-      subject: await spellChecker(edu[i].subject),
-    });
+  for (let i = 0; i < data.length; i++) {
+    res.push(await suggestions(data[i]));
   }
 
   return res;
 };
 
-const spellCheckSkills = async (skills) => {
-  const res = [];
-
-  for (let i = 0; i < skills.length; i++) {
-    res.push({
-      title: await spellChecker(skills[i].title),
-      skills: await spellChecker(skills[i].skills.map(_ => _.title).join(', ')),
-    });
+const suggestions = async (data) => {
+  if (typeof data === 'object') {
+    return Array.isArray(data) ? await loopArray(data) : await loopObject(data);
   }
 
-  return res;
+  return await spellchecker(data);
 };
-
-const spellCheckVolunteering = async (volunteering) => {
-  const res = [];
-
-  for (let i = 0; i < volunteering.length; i++) {
-    res.push({
-      info: await spellChecker(volunteering[i].info),
-      position: await spellChecker(volunteering[i].position),
-    });
-  }
-
-  return res;
-};
-
-const res = async () => ({
-  profession: await spellChecker(data.profession),
-  nationality: await spellChecker(data.nationality),
-  personal_statement: await spellChecker(data.personal_statement),
-  employment: await spellCheckJobs(data.employment),
-  education: await spellCheckEdu(data.education),
-  skill_types: await spellCheckSkills(data.skill_types),
-  volunteering: await spellCheckVolunteering(data.volunteering),
-  others: await spellChecker(data.others.join(', ')),
-});
 
 (async () => {
-  await addWords([
-    'B.Eng.',
-  ]);
-
-  console.log(util.inspect(await res(), false, null));
+  await addWords(words);
+  console.log(util.inspect(await suggestions(data), false, null));
 })();
